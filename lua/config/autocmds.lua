@@ -22,8 +22,16 @@ local setup_spec_opener = function()
     vim.cmd("edit " .. corresponding_file)
   end, { desc = "Spec opener" })
 end
+
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "ruby",
   callback = setup_spec_opener,
   desc = "Setup spec opener",
 })
+
+vim.keymap.set("v", "<leader>f", function()
+  vim.api.nvim_input("y")
+  vim.api.nvim_input("<cmd> Telescope live_grep <CR>")
+  vim.api.nvim_input("<c-r>")
+  vim.api.nvim_input("0")
+end, { desc = "Telescope live grep for selection" })
