@@ -15,6 +15,11 @@ return {
     end,
   },
 
+  {
+    "aikow/base.nvim",
+    opts = {},
+  },
+
   -- {
   --   "echasnovski/mini.move",
   --   version = "*",
